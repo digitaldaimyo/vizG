@@ -31,4 +31,4 @@ jobs:
       uses: actions/upload-artifact@v3  # Update to v3
       with:
         name: python-executable
-        path: dist/tableGui.exe
+        path: dist/tableGui2.exe
