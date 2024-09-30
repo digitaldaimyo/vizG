@@ -1,12 +1,12 @@
 import tkinter as tk
 from tkinter import messagebox
-from .specialWords import DPRNT
-from .macroVariable import MacroVariable
-from .block import Block
-from .program import Program
-from .words import M99
-from .specialWords import DPRNT
-from .dPrnt_utils import DPRNTTableBuilder  # Importing from the dPrnt_utils module
+from specialWords import DPRNT
+from macroVariable import MacroVariable
+from block import Block
+from program import Program
+from words import M99
+from specialWords import DPRNT
+from dPrnt_utils import DPRNTTableBuilder  # Importing from the dPrnt_utils module
 
 class App:
     def __init__(self, root):
