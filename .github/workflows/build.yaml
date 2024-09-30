@@ -11,10 +11,10 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3  # Use the latest version of checkout
+      uses: actions/checkout@v4  # Use the latest version of checkout
 
     - name: Set up Python
-      uses: actions/setup-python@v4  # Use the latest version of setup-python
+      uses: actions/setup-python@v5  # Use the latest version of setup-python
       with:
         python-version: '3.x'
 
@@ -22,6 +22,15 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install pyinstaller
+        pip install pytest pytest-cov
+        pytest --junitxml=junit/test-results-${{ matrix.python-version }}.xml
+
+    - name: Upload test results
+      uses: actions/upload-artifact@v4
+      with:
+        name: pytest-results-${{ matrix.python-version }}
+        path: junit/test-results-${{ matrix.python-version }}.xml
+      if: ${{ always() }}
 
     - name: Build executable
       run: |
@@ -31,4 +40,4 @@ jobs:
       uses: actions/upload-artifact@v4  # Update to v3
       with:
         name: python-executable
-        path: dist/tableGui2.exe
+        path: output/tableGui.exe
