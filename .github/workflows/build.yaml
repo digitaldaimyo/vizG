@@ -23,7 +23,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install pyinstaller
         pip install pytest pytest-cov
-        pytest --junitxml=junit/test-results-${{ matrix.python-version }}.xml
+        pytest /test --junitxml=junit/test-results-${{ matrix.python-version }}.xml
 
     - name: Upload test results
       uses: actions/upload-artifact@v4
