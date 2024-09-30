@@ -25,10 +25,10 @@ jobs:
 
     - name: Build executable
       run: |
-        pyinstaller --onefile --windowed your_script.py
+        pyinstaller --onefile --windowed tableGui.py
 
     - name: Upload executable
       uses: actions/upload-artifact@v3  # Update to v3
       with:
         name: python-executable
-        path: dist/your_script.exe
+        path: dist/tableGui.exe
