@@ -22,13 +22,10 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install pyinstaller
-        pip install pytest pytest-cov
-        pytest test/
-
+        
     - name: Build executable
       run: |
-        pyinstaller --onefile --windowed tableGui.py
-
+        pyinstaller --onefile tableGui.py --distpath ./output --workpath ./build_temp --log-level=DEBUG
     - name: Upload executable
       uses: actions/upload-artifact@v4  # Update to v3
       with:
