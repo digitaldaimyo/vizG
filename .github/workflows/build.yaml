@@ -25,7 +25,7 @@ jobs:
 
     - name: Build executable
       run: |
-        pyinstaller --onedir --windowed tableGui.py
+        pyinstaller --onefile --windowed tableGui.py
 
     - name: Upload executable
       uses: actions/upload-artifact@v3  # Update to v3
