@@ -8,7 +8,8 @@
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 	"features":{
-		"ghcr.io/devcontainers/features/desktop-lite:1": {}
+		"ghcr.io/devcontainers/features/desktop-lite:1": {},
+		"ghcr.io/devcontainers-contrib/features/coverage-py:2": {}
 	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
@@ -18,10 +19,10 @@
 			"label": "desktop",
 			"onAutoForward": "notify"
 		}
-	}
+	},
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "pip3 install --user -r requirements.txt",
+	"postCreateCommand": "pip3 install --user -r requirements.txt"
 
 	// Configure tool-specific properties.
 	// "customizations": {},
