@@ -10,6 +10,7 @@ from vizg.block import Block  # Import the Block class
 from vizg.specialWords import Comment, DPRNT
 from vizg.macroVariable import MacroVariable
 from vizg.operators import OperatorWord, Expression
+from typing import List, Union, Optional
 
 class SpindleDirection(Enum):
     """Enum representing spindle directions."""
@@ -307,7 +308,7 @@ class SetVariable(Command):
     Command to set a macro variable to a specific value (either a number or another macro variable).
     """
     
-    def __init__(self, var_num_to_set: int, set_to: int or float, is_var: bool):
+    def __init__(self, var_num_to_set: int, set_to: Union[int, float], is_var: bool):
         """
         Initialize the SetVariable command.
         

@@ -1,5 +1,5 @@
 from decimal import Decimal, InvalidOperation
-from macroVariable import MacroVariable
+from vizg.macroVariable import MacroVariable
 
 class Numeric:
     def __init__(self, value, precision=4, leading_zero=False):

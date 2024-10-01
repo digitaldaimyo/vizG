@@ -1,9 +1,9 @@
-from address import Address
-from numeric  import Numeric
-from macroVariable import MacroVariable
-from decimal import Decimal 
-from modals import ModalGroup
-from rule import NumericRule, BlockRule
+from decimal import Decimal
+
+from vizg.address import Address
+from vizg.numeric  import Numeric
+from vizg.macroVariable import MacroVariable
+from vizg.rule import NumericRule, BlockRule
 
 class Word:
     def __init__(self, address: Address, numeric: Numeric, rules=None):

@@ -1,11 +1,11 @@
 from abc import ABC, abstractmethod
-from modals import is_word_in_group, ModalGroup
-from address import *
-from address import Address 
-from word import Word
-from specialWords import SpecialWord
-from macroVariable import MacroVariable
-from rule import Rule, NumericRule, BlockRule
+
+from vizg.modals import is_word_in_group, ModalGroup
+from vizg.address import Address 
+from vizg.word import Word
+from vizg.specialWords import SpecialWord
+from vizg.macroVariable import MacroVariable
+from vizg.rule import Rule, NumericRule, BlockRule
 
 class NumericRangeRule(NumericRule):
     def __init__(self, min_value=None, max_value=None):

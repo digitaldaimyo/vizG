@@ -1,16 +1,14 @@
 from abc import ABC
 from typing import Optional, Union, List
+from decimal import Decimal
 
-from address import Address
-from address import *
-from address import A, F, G, H, I, J, K, L, M, P, S, T, X, Y, Z
-from numeric import Numeric
-from macroVariable import MacroVariable
-from decimal import Decimal 
-from modals import ModalGroup
-from word import Word
-from rule import Rule, NumericRule, BlockRule
-from rules import (
+from vizg.address import Address, A, F, G, H, I, J, K, L, M, P, S, T, X, Y, Z
+from vizg.numeric import Numeric
+from vizg.macroVariable import MacroVariable 
+from vizg.modals import ModalGroup
+from vizg.word import Word
+from vizg.rule import Rule, NumericRule, BlockRule
+from vizg.rules import (
     NumericRangeRule,
     ExcludeModalGroup,
     ExcludeAddress,

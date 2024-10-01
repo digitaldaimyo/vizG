@@ -1,7 +1,7 @@
-from specialWords import DPRNT
-from macroVariable import MacroVariable
-from block import Block
-from program import Program
+from vizg.specialWords import DPRNT
+from vizg.macroVariable import MacroVariable
+from vizg.block import Block
+from vizg.program import Program
 
 def pad_text_for_column(text, total_width):
     """
