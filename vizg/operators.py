@@ -1,6 +1,6 @@
-from macroVariable import MacroVariable
-from numeric import Numeric 
-from block import Block
+from vizg.macroVariable import MacroVariable
+from vizg.numeric import Numeric 
+from vizg.block import Block
 
 class OperatorWord:
     """
