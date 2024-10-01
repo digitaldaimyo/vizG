@@ -47,26 +47,28 @@ class WordLikeDialog(simpledialog.Dialog):
         for param_name, entry in self.inputs.items():
             value = entry.get()
             param_type = inspect.signature(self.wordlike_class.__init__).parameters[param_name].annotation
-
+            
             # Handle Union types by trying each type in sequence
             if get_origin(param_type) is Union:
                 param_value = self.try_convert_union(value, get_args(param_type))
             else:
                 param_value = self.convert_value(value, param_type)
 
-            if param_value is None:
+            if param_value is None or value == "":
                 # If we couldn't convert, return early to avoid creating the object
-                self.result = None
-                return
+                param_value = None
+                #self.result = None
+                #return
 
             init_values.append(param_value)
 
         # Create the WordLike object with the collected values
         self.result = self.wordlike_class(*init_values)
+        print(self.result)
 
     def try_convert_union(self, value, possible_types):
         """Attempt to convert the value to each type in the Union until successful."""
-        if value == "None":
+        if value == "None" or value == "":
             return None  # Treat "None" string as None
 
         for param_type in possible_types:
@@ -148,6 +150,7 @@ class ExpressionEditor(tk.Tk):
             # Add to the expression and G-code objects list
             self.expression_entry.insert(tk.END, repr(word_object) + " ")
             self.gcode_objects.append(word_object)
+            print(word_object)
 
 
 
