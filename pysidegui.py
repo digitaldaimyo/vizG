@@ -1,32 +1,11 @@
 from PySide6.QtWidgets import (
-    QApplication, QMainWindow, QWidget, QVBoxLayout, QFrame, QPushButton, QDialogButtonBox, QDialog, QLabel
+    QApplication, QMainWindow, QWidget, QHBoxLayout, QVBoxLayout, QFrame, QPushButton, QDialogButtonBox, QDialog, QLabel
 )
 from PySide6.QtCore import Qt
 import sys
 
-class CustomDialog(QDialog):
-    def __init__(self, parent=None):
-        super().__init__(parent)
-        self.setWindowTitle("Modal Dialog")
-        
-        layout = QVBoxLayout()
-        label = QLabel("This is a modal dialog.")
-        layout.addWidget(label)
-
-        buttons = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
-        buttons.accepted.connect(self.accept)
-        buttons.rejected.connect(self.reject)
-        
-        menu_button = QPushButton("Menu")  # Placeholder for sliding menu button
-        #menu_button.clicked.connect(self.show_modal_dialog)
-        menu_button.setStyleSheet("background-color: #1abc9c; color: white; border-radius: 5px;")
-
-        layout.addWidget(buttons)
-        layout.addWidget(menu_button)
-        
-        self.setLayout(layout)
-        self.setFixedSize(300, 200)  # Set dialog size
-
+from gui.tabbedTool import ScrollableButtonTab, TabbedButtonWidget
+from gui.detailsDialog import CustomDialog
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -62,12 +41,16 @@ class MainWindow(QMainWindow):
         self.tool_frame.setFrameShape(QFrame.Box)
         self.tool_frame.setFixedHeight(170)  # Increased height for toolbar
         self.tool_frame.setStyleSheet("background-color: #34495e; border: 1px solid #2c3e50;")
+        tool_layout = QVBoxLayout(self.tool_frame)
         main_layout.addWidget(self.tool_frame)
+
+        self.tabbedTool = TabbedButtonWidget(self.tool_frame)
+        tool_layout.addWidget(self.tabbedTool)
 
         self.setGeometry(100, 100, 800, 600)  # Set initial size of the window
         
     def show_modal_dialog(self):
-        dialog = CustomDialog(self)
+        dialog = CustomDialog(self, title="Menu Dialog")
         if dialog.exec() == QDialog.Accepted:
             print("Dialog accepted")
         else:

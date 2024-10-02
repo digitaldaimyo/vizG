@@ -20,7 +20,7 @@
 	},
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "apt-get update && apt-get install -y libegl1 libgl1-mesa-dev libgles2-mesa-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev && pip3 install --user -r requirements.txt"
+	"postCreateCommand": "sudo apt-get update && sudo apt-get install -y libegl1 libgl1-mesa-dev libgles2-mesa-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libxcb-xinerama0 libxcb-cursor0 libxcb-keysyms1 libxcb-icccm4 libxcb-image0 libxcb-render-util0 libxkbcommon-x11-0 qtbase5-dev libqt5gui5 libqt5widgets5 && export QT_QPA_PLATFORM_PLUGIN_PATH=/usr/lib/x86_64-linux-gnu/qt5/plugins/platforms && pip3 install --user -r requirements.txt"
 
 	// Configure tool-specific properties.
 	// "customizations": {},
