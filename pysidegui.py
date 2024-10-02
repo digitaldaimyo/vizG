@@ -7,6 +7,7 @@ import sys
 from gui.codeCanvas import CodeCanvas, CodeBlock, CodeWord
 from gui.tabbedTool import ScrollableButtonTab, TabbedButtonWidget
 from gui.detailsDialog import CustomDialog
+from gui.slideMenu import SlidingMenu
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -23,13 +24,12 @@ class MainWindow(QMainWindow):
         # Menu Frame (Top)
         self.menu_frame = QFrame()
         self.menu_frame.setFrameShape(QFrame.Box)
-        self.menu_frame.setFixedHeight(50)  # Fixed height for the menu area
+        self.menu_frame.setFixedHeight(25)  # Fixed height for the menu area
         self.menu_frame.setStyleSheet("background-color: #2c3e50; border: 1px solid #34495e;")
-        menu_button = QPushButton("Menu", self.menu_frame)  # Placeholder for sliding menu button
-        menu_button.clicked.connect(self.show_modal_dialog)
-        menu_button.setStyleSheet("background-color: #1abc9c; color: white; border-radius: 5px;")
-        menu_button.setGeometry(10, 10, 80, 30)  # Positioning the button
-        main_layout.addWidget(self.menu_frame)
+        main_layout.addWidget(self.menu_frame, stretch=1)
+
+        self.slide_menu = SlidingMenu(self)
+        self.slide_menu.setGeometry(0, -200 + self.slide_menu.menu_button.height(), self.width(), 200)
 
         # Work Frame (Middle, Largest)
         self.work_frame = QFrame()
@@ -49,7 +49,7 @@ class MainWindow(QMainWindow):
         main_layout.addWidget(self.tool_frame)
 
         self.tabbedTool = TabbedButtonWidget(self.tool_frame)
-        tool_layout.addWidget(self.tabbedTool)
+        tool_layout.addWidget(self.tabbedTool, stretch = 2)
 
         self.setGeometry(100, 100, 800, 600)  # Set initial size of the window
         
@@ -59,6 +59,10 @@ class MainWindow(QMainWindow):
             print("Dialog accepted")
         else:
             print("Dialog canceled")
+
+    def resizeEvent(self, event):
+        super().resizeEvent(event)
+        self.slide_menu.setGeometry(0, -200 + self.slide_menu.menu_button.height(), self.width(), 200)
 
 
 if __name__ == "__main__":
