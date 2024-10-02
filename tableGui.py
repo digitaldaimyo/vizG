@@ -89,7 +89,7 @@ class App:
         #tk.Label(self.root, text="Output:").grid(row=row, column=1, sticky="nw", padx=5, pady=5)
         self.output_text = tk.Text(self.root, height=15)
         self.output_text.grid(row=row, column=1, columnspan=3, sticky="nsew", padx=5, pady=5)
-        self.output_text.config(state=tk.DISABLED)
+        #self.output_text.config(state=tk.DISABLED)
         self.configure_row(row)
 
         # Add "Copy to Clipboard" button
