@@ -1,5 +1,5 @@
 from PySide6.QtWidgets import (
-    QVBoxLayout, QHBoxLayout, QDialogButtonBox, QDialog, QFrame, QLabel
+    QVBoxLayout, QHBoxLayout, QDialogButtonBox, QDialog, QFrame, QLabel, QWidget
 )
 
 class CustomDialog(QDialog):
@@ -23,7 +23,7 @@ class CustomDialog(QDialog):
         if width is not None and height is not None:
             self.setFixedSize(width, height)
 
-class DetailField(QHBoxLayout):
+class DetailField(QWidget):
     def __init__(self, label="A Detail", default="", data_type=str, required=False):
         self.label = QLabel(label)
         self.default = default

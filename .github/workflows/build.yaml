@@ -25,7 +25,7 @@ jobs:
         
     - name: Build executable
       run: |
-        pyinstaller --onefile ./vizg/tableGui.py --name tableGui --distpath ./output --workpath ./build_temp --log-level=DEBUG
+        pyinstaller --onefile ./tableGui.py --name tableGui --distpath ./output --workpath ./build_temp --log-level=DEBUG
     - name: Upload executable
       uses: actions/upload-artifact@v4  # Update to v3
       with:

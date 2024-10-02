@@ -4,6 +4,7 @@ from PySide6.QtWidgets import (
 from PySide6.QtCore import Qt
 import sys
 
+from gui.codeCanvas import CodeCanvas, CodeBlock, CodeWord
 from gui.tabbedTool import ScrollableButtonTab, TabbedButtonWidget
 from gui.detailsDialog import CustomDialog
 
@@ -34,6 +35,9 @@ class MainWindow(QMainWindow):
         self.work_frame = QFrame()
         self.work_frame.setFrameShape(QFrame.Box)
         self.work_frame.setStyleSheet("background-color: #ecf0f1; border: 1px solid #bdc3c7;")
+        self.work_layout = QVBoxLayout(self.work_frame)
+        code_canvas = CodeCanvas()
+        self.work_layout.addWidget(code_canvas)
         main_layout.addWidget(self.work_frame, stretch=8)  # Occupy the most height
 
         # Tool Frame (Bottom, Taller)
