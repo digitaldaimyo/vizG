@@ -151,6 +151,7 @@ class App:
             messagebox.showerror("Error", str(e))  # Only show errors
             
     def build_program(self):
+        print("building program")
         try:
             prog = Program(int(self.o_number_var.get()), self.report_name_var.get())
 
@@ -162,10 +163,13 @@ class App:
             prog.add_block(header_block)
             # Add user-defined rows
             dprint_table = self.builder.build()
+            print("about to iterate rows in build program")
             for row in dprint_table:
                 block = Block()
                 block.add_word(row)
                 prog.add_block(block)
+
+            print("finished iterating rows")
 
             # Add M99 as the end block
             end_block = Block()
