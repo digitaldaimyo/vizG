@@ -179,7 +179,8 @@ class App:
             # Display the generated program
             self.output_text.delete(1.0, tk.END)
             self.output_text.insert(tk.END, str(prog))
-
+            print(str(prog))
+            print("program should be inserted")
         except Exception as e:
             messagebox.showerror("Error", str(e))  # Only show errors
 
