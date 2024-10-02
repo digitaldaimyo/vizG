@@ -89,7 +89,7 @@ class App:
         #tk.Label(self.root, text="Output:").grid(row=row, column=1, sticky="nw", padx=5, pady=5)
         self.output_text = tk.Text(self.root, height=15)
         self.output_text.grid(row=row, column=1, columnspan=3, sticky="nsew", padx=5, pady=5)
-        #self.output_text.config(state=tk.DISABLED)
+        self.output_text.config(state=tk.DISABLED)
         self.configure_row(row)
 
         # Add "Copy to Clipboard" button
@@ -177,8 +177,10 @@ class App:
             prog.add_block(end_block)
 
             # Display the generated program
+            self.output_text.config (state = tk.NORMAL)
             self.output_text.delete(1.0, tk.END)
             self.output_text.insert(tk.END, str(prog))
+            self.output_text.config (state = tk.DISABLED)
             print(str(prog))
             print("program should be inserted")
         except Exception as e:
