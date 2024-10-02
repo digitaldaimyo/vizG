@@ -1,0 +1,25 @@
+# Ignore Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore virtual environments and dependencies
+env/
+venv/
+.venv/
+*.egg-info/
+*.eggs/
+dist/
+build/
+
+# Ignore pip wheelhouse
+wheelhouse/
+
+# Ignore package managers' log files
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Ignore system-specific files
+.DS_Store
+.idea/
+.vscode/
